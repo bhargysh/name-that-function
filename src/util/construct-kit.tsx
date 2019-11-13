@@ -3,7 +3,9 @@ export {
     TextInput,
     Button,
     H1,
-    H2
+    H2,
+    H3,
+    Inline
 }
 // @ts-ignore
 from "@construct-kit/core";

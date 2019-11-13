@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { ConstructKit, H1, H2 } from "./util/construct-kit";
+import { ConstructKit } from "./util/construct-kit";
 import InputForm from "./components/InputForm";
+import About from "./components/About";
 import styled from "styled-components";
 
 const App: React.FC = () => {
@@ -17,7 +18,9 @@ const App: React.FC = () => {
       setAppState(data);
     });
   }
-
+  const Wrapper = styled.section`
+    background-color: #F5BCBA;
+  `
   const Section = styled.div`
     display: flex;
     flex-direction: column;
@@ -27,17 +30,17 @@ const App: React.FC = () => {
   `
   return (
     <ConstructKit>
-      <Section>
-        <H1>Name That Function</H1>
-        <H2>Naming is hard. Name that Function is your naming guide to create those important functions for your app.
-          Simply enter the verb and object/noun for your function and pick a name from the many possibilities!</H2>
-      </Section>
-      <Section>
-        <InputForm onSubmit={getSynonyms} />
-      </Section>
-      <Section>
-        {JSON.stringify(appState)}
-      </Section>
+      <Wrapper>
+        <Section>
+          <About />
+        </Section>
+        <Section>
+          <InputForm onSubmit={getSynonyms} />
+        </Section>
+        <Section>
+          {JSON.stringify(appState)}
+        </Section>
+      </Wrapper>
     </ConstructKit>
   );
 }
