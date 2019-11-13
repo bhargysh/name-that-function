@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ConstructKit } from "./util/construct-kit";
 import InputForm from "./components/InputForm";
 import About from "./components/About";
+import ArrowButton from "./components/ArrowButton";
 import styled from "styled-components";
 
 const App: React.FC = () => {
@@ -34,6 +35,7 @@ const App: React.FC = () => {
         <Section>
           <About />
         </Section>
+        <ArrowButton />
         <Section>
           <InputForm onSubmit={getSynonyms} />
         </Section>

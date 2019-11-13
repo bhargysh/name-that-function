@@ -8,6 +8,7 @@ const About = () => {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-height: 100vh;
     `
     const Title = styled(H1)`
         margin: 5vh 0;
