@@ -9,12 +9,11 @@ const App: React.FC = () => {
 
   const [ appState, setAppState ] = useState({});
 
-  const getSynonyms = (verb: String) => {
+  const getSynonyms = (verb: String, noun: String) => {
     console.log('reaches getSynonyms');
     fetch(`${BASE_URL}/${verb}?key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       setAppState(data);
     });
   }
