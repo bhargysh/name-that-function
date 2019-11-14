@@ -10,11 +10,10 @@ const App: React.FC = () => {
   const BASE_URL = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json'
   const API_KEY = '6d527ea3-6da9-4a03-843c-69a3ab911000';
 
-  const [ appState, setAppState ] = useState({});
+  const [ appState, setAppState ] = useState([{}]);
   const [ inputNoun, setNoun ] = useState("");
 
   const getSynonyms = (verb: string, noun: string) => {
-    console.log('reaches getSynonyms');
     fetch(`${BASE_URL}/${verb}?key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
@@ -41,9 +40,6 @@ const App: React.FC = () => {
         <ArrowButton />
         <Section>
           <InputForm onSubmit={getSynonyms} />
-        </Section>
-        <Section>
-          {JSON.stringify(appState)}
         </Section>
         <Section>
           <NameOptions appState={appState} inputNoun={inputNoun}/>
