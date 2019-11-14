@@ -1,11 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import HoverCopyButton from "./HoverCopyButton";
 
 type MyProps = {
   appState: Array<any>;
   inputNoun: string;
 };
 const Container = styled.div``;
+const TextField = styled.div`
+  margin: 2vh 0;
+  :hover {
+    cursor: pointer;
+    color: #e74292;
+  }
+`;
+
 const NameOptions = ({ appState, inputNoun }: MyProps) => {
   let options: Array<string> = [];
   const capitaliseFirstLetter = (noun: string) => {
@@ -29,10 +38,26 @@ const NameOptions = ({ appState, inputNoun }: MyProps) => {
       options = combineSynonymWithNoun(synonyms, inputNoun);
     }
   }
+  const copyToClipboard = (someInt: number) => {
+    const wordToCopy = options[someInt];
+    document.addEventListener("copy", (e: ClipboardEvent) => {
+      if (e.clipboardData) {
+        e.clipboardData.setData("text/plain", wordToCopy);
+      }
+      e.preventDefault();
+      document.removeEventListener("copy", () => {});
+    });
+    document.execCommand("copy");
+  };
   return (
     <Container>
       {options.map((option, index) => {
-        return <div key={`function-name-${index}`}>{option}</div>;
+        return (
+          <TextField key={`function-name-${index}`}>
+            {option}
+            <HoverCopyButton index={index} func={copyToClipboard} />
+          </TextField>
+        );
       })}
     </Container>
   );
