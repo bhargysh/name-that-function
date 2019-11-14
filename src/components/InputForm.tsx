@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 // TODO: add form field validity (i.e. can only be letters) where setSubmitted will be called
 
-const InputForm = ({onSubmit}: {onSubmit: (verb: String, noun: String) => void}) => {
+const InputForm = ({onSubmit}: {onSubmit: (verb: string, noun: string) => void}) => {
   const [verb, setVerb] = useState("");
   const [noun, setNoun] = useState("");
   // const [submitted, setSubmitted] = useState(false);

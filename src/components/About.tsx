@@ -9,9 +9,13 @@ const About = () => {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
+        @media (max-width: 500px) {
+            width: 80%;
+            flex-direction: column;
+        }
     `
     const Title = styled(H1)`
-        margin: 5vh 0;
+        margin: 3vh 0;
         color: #2B2B52;
     `
     const Description = styled(H2)`
