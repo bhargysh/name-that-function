@@ -14,7 +14,7 @@ const bounce = keyframes`
     }
 `;
 const Button = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 10px;
   left: 50%;
   margin-left: -20px;
