@@ -5,7 +5,7 @@ export {
     H1,
     H2,
     H3,
-    LightBulbLg
+    Box
 }
 // @ts-ignore
 from "@construct-kit/core";

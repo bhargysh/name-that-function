@@ -17,7 +17,6 @@ const InputForm = ({
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     & button {
       align-self: center;
       margin: 20px 0;

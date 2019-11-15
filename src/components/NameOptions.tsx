@@ -27,8 +27,11 @@ const NameOptions = ({ appState, inputNoun }: MyProps) => {
     listOfSynonyms: Array<string>,
     noun: string
   ) => {
+    const topTenSynonyms = listOfSynonyms.slice(0, 10);
     const capitalisedNoun = capitaliseFirstLetter(noun);
-    const listOfOptions = listOfSynonyms.map(syn => syn + capitalisedNoun);
+    const listOfOptions = topTenSynonyms.map(
+      syn => syn.replace(/\s/g, "") + capitalisedNoun
+    );
     return listOfOptions;
   };
   if (appState) {
