@@ -9,7 +9,6 @@ import styled from "styled-components";
 const App: React.FC = () => {
   const BASE_URL =
     "https://www.dictionaryapi.com/api/v3/references/thesaurus/json";
-  const API_KEY = "6d527ea3-6da9-4a03-843c-69a3ab911000";
 
   const [appState, setAppState] = useState([{}]);
   const [inputNoun, setNoun] = useState("");
@@ -21,7 +20,7 @@ const App: React.FC = () => {
   const executeScrollToForm = () => scrollToRef(inputFormRef);
 
   const getSynonyms = (verb: string, noun: string) => {
-    fetch(`${BASE_URL}/${verb}?key=${API_KEY}`)
+    fetch(`${BASE_URL}/${verb}?key=${process.env.REACT_APP_MERIAM_WEBSTER_API_KEY}`)
       .then(response => response.json())
       .then(data => {
         setAppState(data);
