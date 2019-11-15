@@ -17,20 +17,29 @@ const InputForm = ({
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
     & button {
       align-self: center;
       margin: 20px 0;
+    }
+    @media (max-width: 700px) {
+      width: 90%;
+      flex-direction: column;
     }
   `;
   const FormTitle = styled(H1)`
     margin: 3vh 0;
     color: #2b2b52;
+    @media (max-width: 700px) {
+      width: 90%;
+      flex-direction: row;
+    }
   `;
   const FlexTextInput = styled(TextInput)`
     width: 50vh;
     line-height: 30px;
-    @media (max-width: 500px) {
-      width: 100%;
+    @media (max-width: 700px) {
+      width: 90%;
       flex-direction: column;
     }
   `;

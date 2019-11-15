@@ -9,8 +9,8 @@ const About = () => {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        @media (max-width: 500px) {
-            width: 80%;
+        @media (max-width: 700px) {
+            width: 70%;
             flex-direction: column;
         }
     `
@@ -37,10 +37,10 @@ const About = () => {
         <Container>
             <Title>Name That Function</Title>
             <Description>Naming functions when you're coding can be hard.</Description>
-            <Emojis>😐😐😐😐😐😐😐😐😐</Emojis>
+            <Emojis>😐😐😐😐😐😐😐😐</Emojis>
             <Description>BEHOLD, Name that Function.</Description>
             <Paragraph>Name that Function is your guide to naming functions with non-typical names. No more getResponse()!</Paragraph>
-            <Emojis>🤩🤩🤩🤩🤩🤩🤩🤩🤩</Emojis>
+            <Emojis>🤩🤩🤩🤩🤩🤩🤩🤩</Emojis>
             <Paragraph>Just enter the verb and noun or object of your function and pick a name from the many possibilities.</Paragraph>
         </Container>
     );
