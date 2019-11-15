@@ -34,7 +34,7 @@ const NameOptions = ({ appState, inputNoun }: MyProps) => {
     );
     return listOfOptions;
   };
-  if (appState) {
+  if (appState.length !== 0) {
     const meta = appState[0]["meta"];
     if (meta) {
       const synonyms: Array<string> = meta["syns"][0];
