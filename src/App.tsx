@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, RefObject } from "react";
+import React, { useState, useRef, RefObject } from "react";
 import { ConstructKit } from "./util/construct-kit";
 import InputForm from "./components/InputForm";
 import About from "./components/About";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { TextInput, Button, H1 } from "../util/construct-kit";
 import styled from "styled-components";
 
@@ -9,9 +9,9 @@ const InputForm = ({
 }: {
   onSubmit: (verb: string, noun: string) => void;
 }) => {
-  const [verb, setVerb] = useState("");
-  const [noun, setNoun] = useState("");
-  // const [submitted, setSubmitted] = useState(false);
+  const nounRef: React.MutableRefObject<any> = useRef(null);
+  const verbRef: React.MutableRefObject<any> = useRef(null);
+
   const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ const InputForm = ({
     color: #2b2b52;
   `;
   const FlexTextInput = styled(TextInput)`
-    width: 50vh; // want to make the boxes wider but still responsible
+    width: 50vh;
     line-height: 30px;
     @media (max-width: 500px) {
       width: 100%;
@@ -55,26 +55,22 @@ const InputForm = ({
         label="Your Verb"
         placeholder="E.g. construct, fetch, create"
         help="insert a verb e.g. construct"
-        value={verb}
-        onChange={(e: React.FormEvent<HTMLInputElement>) =>
-          setVerb(e.currentTarget.value)
-        }
+        ref={verbRef}
       />
       <FlexTextInput
         id="noun"
         label="Your Noun"
         placeholder="E.g. blog, email, post"
         help="the object or noun e.g. pricing details"
-        value={noun}
-        onChange={(e: React.FormEvent<HTMLInputElement>) =>
-          setNoun(e.currentTarget.value)
-        }
+        ref={nounRef}
       />
       <DarkButton
         type="submit"
         onClick={(e: Event) => {
           e.preventDefault();
-          onSubmit(verb, noun);
+          if (verbRef && nounRef) {
+            onSubmit(verbRef.current.value, nounRef.current.value);
+          }
         }}
       >
         Submit
