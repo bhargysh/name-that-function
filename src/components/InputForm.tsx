@@ -1,17 +1,37 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { TextInput, Button, H1 } from "../util/construct-kit";
 import styled from "styled-components";
-
-// TODO: add form field validity (i.e. can only be letters) where setSubmitted will be called
 
 const InputForm = ({
   onSubmit
 }: {
   onSubmit: (verb: string, noun: string) => void;
 }) => {
-  const nounRef: React.MutableRefObject<any> = useRef(null);
-  const verbRef: React.MutableRefObject<any> = useRef(null);
+  const nounRef = useRef<HTMLInputElement>(null);
+  const verbRef = useRef<HTMLInputElement>(null);
+  const [validVerbState, setValidVerbState] = useState(true);
+  const [validNounState, setValidNounState] = useState(true);
 
+  const invalidCharacters = /([^1234567890~`!@#$%^&*()_+[\]{}|;':,./<>?'"\s])\w+/g;
+  const validateInput = (string: string) => {
+    if (!string.search(invalidCharacters)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const handleOnsubmit = (verbValue: string, nounValue: string) => {
+    if (validateInput(verbValue) && validateInput(nounValue)) {
+      onSubmit(verbValue, nounValue);
+    }
+    if (!validateInput(verbValue)) {
+      setValidVerbState(!validVerbState);
+    }
+    if (!validateInput(nounValue)) {
+      setValidNounState(!validNounState);
+    }
+  };
   const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -64,7 +84,9 @@ const InputForm = ({
         placeholder="E.g. construct, fetch, create"
         help="insert a verb e.g. construct"
         ref={verbRef}
+        // errorMessage={hasError && "Error" }
       />
+      {!validVerbState && <div>🙅‍♀️ Invalid verb, please re-enter</div>}
       <FlexTextInput
         id="noun"
         label="Your Noun"
@@ -72,12 +94,15 @@ const InputForm = ({
         help="the object or noun e.g. pricing details"
         ref={nounRef}
       />
+      {!validNounState && <div>🙅‍♀️ Invalid noun, please re-enter</div>}
       <DarkButton
         type="submit"
         onClick={(e: Event) => {
           e.preventDefault();
-          if (verbRef && nounRef) {
-            onSubmit(verbRef.current.value, nounRef.current.value);
+          if (verbRef && nounRef && verbRef.current && nounRef.current) {
+            const verbValue = verbRef.current.value;
+            const nounValue = nounRef.current.value;
+            handleOnsubmit(verbValue, nounValue);
           }
         }}
       >
