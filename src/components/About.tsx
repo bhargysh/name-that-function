@@ -14,15 +14,6 @@ const About = () => {
       flex-direction: column;
     }
   `;
-  const TitleBox = styled(Box)`
-    background-color: transparent;
-    color: #2b2b52;
-    margin: 4vh 0;
-  `;
-  const Title = styled(H1)`
-    margin: 1vh 1vh;
-    color: #2b2b52;
-  `;
   const Description = styled(H2)`
     color: #2b2b52;
     max-width: 488px;
@@ -40,22 +31,19 @@ const About = () => {
   `;
   return (
     <Container>
-      <TitleBox>
-        <Title>Name That Function</Title>
-      </TitleBox>
       <Description>
-        Naming functions when you're coding can be hard.
+        Naming functions can be hard.
       </Description>
       <Emojis>😐😐😐😐😐😐😐😐</Emojis>
-      <Description>BEHOLD, Name that Function.</Description>
+      <Description>Welcome to Name That Function</Description>
       <Paragraph>
-        Name that Function is your guide to naming functions with non-typical
-        names. No more <code>{"getResponse()"}</code>!
+        Name That Function is your guide to naming
+        functions with non-typical names. No more <code>{"getResponse()"}</code>.
       </Paragraph>
       <Emojis>🤩🤩🤩🤩🤩🤩🤩🤩</Emojis>
       <Paragraph>
-        Just enter the verb and noun or object of your function and pick a name
-        from the many possibilities.
+        Just enter the verb, noun/object and pick a name from
+        the many possibilities.
       </Paragraph>
     </Container>
   );
