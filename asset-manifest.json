@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/bhargysh/name-that-function/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/bhargysh/name-that-function/static/js/main.e7e1d8b6.chunk.js",
+    "main.js.map": "/bhargysh/name-that-function/static/js/main.e7e1d8b6.chunk.js.map",
+    "runtime-main.js": "/bhargysh/name-that-function/static/js/runtime-main.98c3eab8.js",
+    "runtime-main.js.map": "/bhargysh/name-that-function/static/js/runtime-main.98c3eab8.js.map",
+    "static/js/2.79eaf350.chunk.js": "/bhargysh/name-that-function/static/js/2.79eaf350.chunk.js",
+    "static/js/2.79eaf350.chunk.js.map": "/bhargysh/name-that-function/static/js/2.79eaf350.chunk.js.map",
+    "index.html": "/bhargysh/name-that-function/index.html",
+    "precache-manifest.099d6d1f4b0a34bea38210b834481317.js": "/bhargysh/name-that-function/precache-manifest.099d6d1f4b0a34bea38210b834481317.js",
+    "service-worker.js": "/bhargysh/name-that-function/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/bhargysh/name-that-function/static/css/main.5ecd60fb.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98c3eab8.js",
+    "static/js/2.79eaf350.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.e7e1d8b6.chunk.js"
+  ]
+}
